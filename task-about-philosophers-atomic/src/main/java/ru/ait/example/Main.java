@@ -1,5 +1,6 @@
 package ru.ait.example;
 
+
 import ru.ait.example.fork.Fork;
 import ru.ait.example.philosopher.Philosopher;
 
