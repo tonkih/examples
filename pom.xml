@@ -22,6 +22,7 @@
         <module>task-about-philosophers</module>
         <module>task-about-philosophers-native</module>
         <module>task-about-philosophers-atomic</module>
+        <module>livelock</module>
     </modules>
 
 </project>
