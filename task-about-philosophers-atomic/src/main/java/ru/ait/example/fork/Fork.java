@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Fork {
 
-  private AtomicBoolean free = new AtomicBoolean(true);
+  private final AtomicBoolean free = new AtomicBoolean(true);
   private final int number;
 
   public Fork(int number) {
