@@ -25,14 +25,29 @@ public class Philosopher implements Runnable {
       try {
         think();
 
-        if (leftFork.take()) {
-          if (rightFork.take()) {
-            eat();
+        label1:
+        {
+          sleep(1000);
+          if (!leftFork.take()) {
+            break label1;
+          }
+
+          if (!rightFork.take()) {
+            leftFork.put();
+            System.out.printf(
+                "Philosopher %s put fork %s because fork %s not free %n",
+                number, leftFork.getNumber(), rightFork.getNumber());
+            break label1;
           }
         }
 
+        eat();
+
         leftFork.put();
+        System.out.printf("Philosopher %s put fork %s %n", number, leftFork.getNumber());
+
         rightFork.put();
+        System.out.printf("Philosopher %s put forks %s %n", number, rightFork.getNumber());
       } catch (InterruptedException e) {
         e.printStackTrace();
       }

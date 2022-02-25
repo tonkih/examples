@@ -20,6 +20,6 @@ public class Fork {
   }
 
   public void put() {
-    free.compareAndSet(false, true);
+    free.set(true);
   }
 }
